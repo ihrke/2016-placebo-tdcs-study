@@ -40,8 +40,8 @@ needed packages with very few commands.
 2. clone this repository
  ~~~{bash}
  git clone
- https://github.com/ihrke/2016-executive-functions-manual-dexterity.git
- cd 2016-executive-functions-manual-dexterity
+ https://github.com/ihrke/2016-placebo-tdcs-study
+ cd 2016-2016-placebo-tdcs-study
  ~~~
 
 3. re-create the environment used for creating these analyses:
@@ -62,131 +62,126 @@ needed packages with very few commands.
 
 ## Data
 
-Raw data is located in `data/raw` and is provided in `.csv` and `.sav`
-(IBM SPSS) format. Data in those files was manually collected from the
-different sources.
+Raw data is located in `data/raw` and is provided in `.csv` format.
 
-The `.R` scripts located in `data` load the two raw files into `R`
+The `.R` scripts located in `data` load the raw files into `R`
 workspace under the name of the `R`-file (without the `.R` extension).
 
 The data is structured as follows (refer to [the paper]() for
 details).
 
-### Cognitive results
+### Subjectively reportex anticipation/expectations
 
-stored in variable `cognitive`
-
-~~~
-> summary(cognitive)
-
-    Studieår         MMSE            BDI        Tallspenn_forlengs Tallspenn_baklengs    Stroop_W         Stroop_C
- Min.   : 7.0   Min.   :25.00   Min.   : 0.00   Min.   : 5.000     Min.   : 3.000     Min.   : 68.00   Min.   :39.00
- 1st Qu.:13.0   1st Qu.:28.25   1st Qu.: 1.25   1st Qu.: 6.000     1st Qu.: 5.000     1st Qu.: 90.25   1st Qu.:63.25
- Median :16.0   Median :29.00   Median : 3.50   Median : 8.000     Median : 6.000     Median : 99.00   Median :68.00
- Mean   :14.7   Mean   :28.80   Mean   : 4.30   Mean   : 7.767     Mean   : 6.133     Mean   : 98.23   Mean   :67.73
- 3rd Qu.:17.0   3rd Qu.:30.00   3rd Qu.: 6.75   3rd Qu.: 9.000     3rd Qu.: 7.000     3rd Qu.:103.00   3rd Qu.:74.50
- Max.   :20.0   Max.   :30.00   Max.   :11.00   Max.   :13.000     Max.   :10.000     Max.   :119.00   Max.   :84.00
-
-   Stroop_WC       Trail_M_A       Trail_M_B      Dynamo_Høyrehånd Dynamo_Venstrehånd   Handedness
- Min.   :20.00   Min.   :13.00   Min.   : 31.50   Min.   :15.33    Min.   :13.83      Min.   :12.00
- 1st Qu.:29.75   1st Qu.:18.50   1st Qu.: 43.38   1st Qu.:25.75    1st Qu.:22.33      1st Qu.:19.25
- Median :38.50   Median :26.75   Median : 59.75   Median :32.00    Median :28.83      Median :21.50
- Mean   :38.77   Mean   :29.73   Mean   : 73.28   Mean   :34.71    Mean   :32.34      Mean   :20.80
- 3rd Qu.:44.75   3rd Qu.:38.38   3rd Qu.:100.88   3rd Qu.:40.42    3rd Qu.:39.50      3rd Qu.:24.00
- Max.   :57.00   Max.   :60.00   Max.   :156.00   Max.   :60.83    Max.   :62.17      Max.   :24.00
-                                                                   NA's   :1
-~~~
-
-### movement times
-
-Are in two separate variables for the two tasks:
+stored in variable `antexp`
 
 ~~~
-> summary(movement.times.task1)
-      subj               action    object       repetition         time
- Min.   : 1.0   REACHING    :360   pin:1440   Min.   : 1.00   Min.   : 116.7
- 1st Qu.: 8.0   GRASPING    :360              1st Qu.: 3.75   1st Qu.: 183.3
- Median :15.5   TRANSPORTING:360              Median : 6.50   Median : 283.3
- Mean   :15.5   INSERTING   :360              Mean   : 6.50   Mean   : 443.8
- 3rd Qu.:23.0                                 3rd Qu.: 9.25   3rd Qu.: 583.3
- Max.   :30.0                                 Max.   :12.00   Max.   :4883.3
-                                                              NA's   :501
+> summary(antexp)
+
+      PID        AAntDirection   AAntAmount     AExpDirection   AExpAmount
+ Min.   : 1.00   -1: 2         Min.   :-30.00   0   :15       Min.   :-15.000
+ 1st Qu.: 8.00   0 :10         1st Qu.:  0.00   1   :12       1st Qu.:  0.000
+ Median :15.00   1 :17         Median : 10.00   -1  : 1       Median :  0.000
+ Mean   :15.34                 Mean   : 13.58   NA's: 1       Mean   :  9.125
+ 3rd Qu.:23.00                 3rd Qu.: 30.00                 3rd Qu.: 15.625
+ Max.   :30.00                 Max.   : 60.00                 Max.   : 60.000
+                                                              NA's   :1
+ BAntDirection   BAntAmount     BExpDirection   BExpAmount
+ -1: 4         Min.   :-20.00   -1: 8         Min.   :-30.0000
+ 0 :10         1st Qu.:  0.00   0 :15         1st Qu.: -5.0000
+ 1 :15         Median : 10.00   1 : 6         Median :  0.0000
+               Mean   : 10.62                 Mean   : -0.1724
+               3rd Qu.: 15.00                 3rd Qu.:  0.0000
+               Max.   : 60.00                 Max.   : 60.0000
+               NA's   :1
 ~~~
 
-~~~
-> summary(movement.times.task2)
-      subj               action        object      repetition        time
- Min.   : 1.0   GRASPING    :960   collar :960   Min.   :1.00   Min.   :  16.67
- 1st Qu.: 8.0   INSERTING   :960   pin    :960   1st Qu.:2.75   1st Qu.: 183.33
- Median :15.5   REACHING    :960   washer1:960   Median :4.50   Median : 283.33
- Mean   :15.5   TRANSPORTING:960   washer2:960   Mean   :4.50   Mean   : 485.00
- 3rd Qu.:23.0                                    3rd Qu.:6.25   3rd Qu.: 650.00
- Max.   :30.0                                    Max.   :8.00   Max.   :5416.66
-                                                                NA's   :1273
+### Subjectively reported arousal
+
+stored in variable `arousal`
 
 ~~~
-
-- `action` codes the movement type
-- `object` are different types of objects (in the complex assembly
-  task)
-- `repetition` is the index of the repetition for each subject
-- `time` is the movement time for each of the actions in ms
-
-### kinematics
-
-The kinematics variables follow the same structure:
-
-~~~
-> summary(kinematics.task1)
-      subj               action    object       repetition       PeakVel          MeanAngVel      TimePeakVel
- Min.   : 1.0   REACHING    :360   pin:1440   Min.   : 1.00   Min.   :  55.72   Min.   : 18.81   Min.   :  0.00
- 1st Qu.: 8.0   GRASPING    :360              1st Qu.: 3.75   1st Qu.: 215.86   1st Qu.: 77.02   1st Qu.:  3.00
- Median :15.5   TRANSPORTING:360              Median : 6.50   Median : 340.43   Median :120.02   Median :  7.00
- Mean   :15.5   INSERTING   :360              Mean   : 6.50   Mean   : 439.89   Mean   :142.09   Mean   : 13.26
- 3rd Qu.:23.0                                 3rd Qu.: 9.25   3rd Qu.: 521.54   3rd Qu.:185.21   3rd Qu.: 18.75
- Max.   :30.0                                 Max.   :12.00   Max.   :3442.59   Max.   :577.75   Max.   :132.00
-                                                              NA's   :786       NA's   :786      NA's   :786
-  NrChangesVel       PeakDisp       MeanAngDisp      TimePeakDisp    NrChangesDisp
- Min.   : 0.000   Min.   : 2.781   Min.   :-17.47   Min.   : 0.000   Min.   : 0.000
- 1st Qu.: 2.000   1st Qu.:38.188   1st Qu.: 25.56   1st Qu.: 2.000   1st Qu.: 2.000
- Median : 3.000   Median :47.255   Median : 34.83   Median : 6.000   Median : 3.000
- Mean   : 5.011   Mean   :47.657   Mean   : 34.48   Mean   : 9.844   Mean   : 4.797
- 3rd Qu.: 6.000   3rd Qu.:56.413   3rd Qu.: 43.88   3rd Qu.:12.000   3rd Qu.: 6.000
- Max.   :35.000   Max.   :90.078   Max.   : 75.76   Max.   :82.000   Max.   :48.000
- NA's   :786      NA's   :786      NA's   :786      NA's   :786      NA's   :786
+> summary(arousal)
+Participant   BL_before         BL_after        A_before         A_after
+1      : 1   Min.   : 4.000   Min.   : 3.00   Min.   : 2.000   Min.   :3.000
+2      : 1   1st Qu.: 6.000   1st Qu.: 5.00   1st Qu.: 7.000   1st Qu.:5.000
+3      : 1   Median : 8.000   Median : 7.00   Median : 7.000   Median :5.500
+4      : 1   Mean   : 7.241   Mean   : 6.31   Mean   : 6.897   Mean   :6.071
+5      : 1   3rd Qu.: 8.000   3rd Qu.: 8.00   3rd Qu.: 8.000   3rd Qu.:8.000
+6      : 1   Max.   :10.000   Max.   :10.00   Max.   :10.000   Max.   :9.000
+(Other):23                                                     NA's   :1
+  B_before         B_after
+Min.   : 4.000   Min.   :3.000
+1st Qu.: 6.000   1st Qu.:5.000
+Median : 7.000   Median :6.000
+Mean   : 7.034   Mean   :6.036
+3rd Qu.: 8.000   3rd Qu.:7.000
+Max.   :10.000   Max.   :9.000
+                NA's   :1
 ~~~
 
+### Data from Reinforcement learning task (learning phase)
+
+data from the three different sessions are stored in three variables
+
+- `learn.N` - baseline
+- `learn.A` -
+- `learn.B` -
+
 ~~~
-> summary(kinematics.task2)
-      subj               action        object      repetition      PeakVel          MeanAngVel       TimePeakVel
- Min.   : 1.0   GRASPING    :960   collar :960   Min.   :1.00   Min.   :  13.77   Min.   :  1.832   Min.   :  0.0
- 1st Qu.: 8.0   INSERTING   :960   pin    :960   1st Qu.:2.75   1st Qu.: 203.34   1st Qu.: 67.525   1st Qu.:  3.0
- Median :15.5   REACHING    :960   washer1:960   Median :4.50   Median : 310.64   Median :109.112   Median :  7.0
- Mean   :15.5   TRANSPORTING:960   washer2:960   Mean   :4.50   Mean   : 401.88   Mean   :131.234   Mean   : 14.4
- 3rd Qu.:23.0                                    3rd Qu.:6.25   3rd Qu.: 476.89   3rd Qu.:167.674   3rd Qu.: 21.0
- Max.   :30.0                                    Max.   :8.00   Max.   :4034.92   Max.   :757.919   Max.   :294.0
-                                                                NA's   :2164      NA's   :2165      NA's   :2165
-  NrChangesVel       PeakDisp       MeanAngDisp      TimePeakDisp    NrChangesDisp
- Min.   : 0.000   Min.   :-15.34   Min.   :-24.20   Min.   :  0.00   Min.   : 0.000
- 1st Qu.: 2.000   1st Qu.: 35.93   1st Qu.: 24.59   1st Qu.:  2.00   1st Qu.: 2.000
- Median : 4.000   Median : 46.41   Median : 34.50   Median :  7.00   Median : 3.000
- Mean   : 5.556   Mean   : 48.49   Mean   : 35.73   Mean   : 13.61   Mean   : 4.786
- 3rd Qu.: 7.000   3rd Qu.: 60.55   3rd Qu.: 46.48   3rd Qu.: 17.00   3rd Qu.: 6.000
- Max.   :82.000   Max.   : 90.90   Max.   : 88.69   Max.   :292.00   Max.   :57.000
- NA's   :2165     NA's   :2262     NA's   :2165     NA's   :2165     NA's   :2165
+> summary(learn.N)
+  Participant        pair   condition      ACC                RT
+ P01    : 360   Min.   :1   N:10440   Min.   :-1.0000   Min.   :0.01671
+ P02    : 360   1st Qu.:1             1st Qu.: 0.0000   1st Qu.:0.69982
+ P03    : 360   Median :2             Median : 1.0000   Median :0.88307
+ P04    : 360   Mean   :2             Mean   : 0.7006   Mean   :0.90199
+ P05    : 360   3rd Qu.:3             3rd Qu.: 1.0000   3rd Qu.:1.08305
+ P06    : 360   Max.   :3             Max.   : 1.0000   Max.   :1.68286
+ (Other):8280                                           NA's   :165
+     reward
+ Min.   :0.0000
+ 1st Qu.:0.0000
+ Median :1.0000
+ Mean   :0.5875
+ 3rd Qu.:1.0000
+ Max.   :1.0000
 ~~~
 
-Variables have the same names as above and the kinematic variables are
-coded as follows:
+Variables are coded as follows:
 
-- `PeakVel` (PV) -  peak velocity
-- `MeanAngVel` (MNV) - mean angular velocity
-- `TimePeakVel` (TPV) - time to peak velocity
-- `NrChangesVel` (NCV) - number of changes in velocity
-- `PeakDisp` (PD) - peak displacement
-- `MeanAngDisp` (MND) - mean angular displacement
-- `TimePeakDisp` (TPD) - time to peak displacement
-- `NrChangesDisp` (NCD) - number of changes in displacement
+- `Participant` - number of the participant (consistent across the three conditions)
+- `pair`  - pair number (1,2,3) with (60/40, 70/30 or 80/20 % coherence)
+- `condition` - one of N, A, B
+- `ACC` - accuracy: 1 correct, 0 incorrect, -1 no response
+- `RT` - reaction time in s
+- `reward` - 1: reward was received, 0: no reward
+
+### Data from Reinforcement learning task (transfer phase)
+
+data from the three different sessions are stored in three variables
+
+- `transfer.N` - baseline
+- `transfer.A`
+- `transfer.B`
+
+~~~
+> summary(transfer.N)
+  Participant         RT          symb1   symb2    choice
+ P01    : 180   Min.   :0.01675   A:870   A:870   A   :1258
+ P02    : 180   1st Qu.:0.68321   B:870   B:870   B   : 457
+ P03    : 180   Median :0.86648   C:870   C:870   C   :1268
+ P04    : 180   Mean   :0.89940   D:870   D:870   D   : 565
+ P05    : 180   3rd Qu.:1.08307   E:870   E:870   E   :1004
+ P06    : 180   Max.   :1.68285   F:870   F:870   F   : 600
+ (Other):4140   NA's   :68                        NA's:  68
+~~~
+
+Variables are coded as follows:
+
+- `Participant` - number of the participant (consistent across the three conditions)
+- `RT` - reaction time in s
+- `symb1`, `symb2` - the two presented symbols (one of A,B,C,D,E,F)
+- `choice` - which symbol was picked or `NA` in case of no response
+
 
 ## Analyses
 
