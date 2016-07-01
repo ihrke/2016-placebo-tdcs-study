@@ -1,6 +1,6 @@
 # Placebo Intervention Enhances Reward Learning in Healthy Individuals
 
-[![DOI](https://zenodo.org/)](https://zenodo.org/)
+[![DOI](https://zenodo.org/badge/19634/ihrke/2016-placebo-tdcs-study.svg)](https://zenodo.org/badge/latestdoi/19634/ihrke/2016-placebo-tdcs-study)
 
 This repository contains data and analyses for the paper "Placebo Intervention Enhances Reward Learning in Healthy Individuals".
 
