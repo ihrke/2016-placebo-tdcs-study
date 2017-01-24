@@ -5,7 +5,7 @@
 This repository contains data and analyses for the paper "Placebo Intervention Enhances Reward Learning in Healthy Individuals".
 
 If you want to use this data/analysis in a research publication,
-please cite our paper.
+please cite [our paper](http://www.nature.com/articles/srep41028).
 
 
 Turi, Z., Mittner, M., Paulus, W. & Antal, A. (2017).
