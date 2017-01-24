@@ -8,15 +8,18 @@ If you want to use this data/analysis in a research publication,
 please cite our paper.
 
 
-Turi, Z., Mittner, M., Paulus, W. & Antal, A. (submitted).
-Placebo Intervention Enhances Reward Learning in Healthy Individuals.
+Turi, Z., Mittner, M., Paulus, W. & Antal, A. (2017).
+Placebo Intervention Enhances Reward Learning in Healthy Individuals. Scientific Reports. 7: 41028. doi:10.1038/srep41028
 
 ~~~{bibtex}
 @article{Turi_placebo2016,
-  author={},
+  author={Turi, Z. and Mittner, M. and Paulus, W. and Antal, A.},
   title={Placebo Intervention Enhances Reward Learning in Healthy Individuals},
-  year=2016,
-  journal={}
+  year=2017,
+  journal={Scientific Reports},
+  volume=7,
+  number=41028,
+  doi=10.1038/srep41028
 }
 ~~~
 
