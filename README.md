@@ -76,7 +76,7 @@ workspace under the name of the `R`-file (without the `.R` extension).
 The data is structured as follows (refer to [the paper](http://www.nature.com/articles/srep41028) for
 details).
 
-### Subjectively reportex anticipation/expectations
+### Subjectively reported anticipation/experiences
 
 stored in variable `antexp`
 
@@ -100,6 +100,22 @@ stored in variable `antexp`
                Max.   : 60.00                 Max.   : 60.0000
                NA's   :1
 ~~~
+
+Variables are coded as follows:
+
+- `PID` - number of the participant 
+- `AAntDirection`  - anticipated direction of change in condition "A" (low-uncertainty) before the experiment; one of (-1, 0, 1) where 
+    - -1 means that subjects expected to get worse, 
+    - 0 means no anticipated change, 
+    - 1 means subjects expected to have improved performance
+- `AAntAmount` - anticipated amount of change in condition "A" (low-uncertainty) on a scale from -100 to +100
+- `AExpDirection` - experienced amount of change in condition "A" (low-uncertainty)  after the experiment; one of (-1, 0, 1) where 
+    - -1 means that subjects experienced a decline in performance
+    - 0 means no experienced change, 
+    - 1 means subjects experienced to have improved performance
+- `AExpAmount` - experienced amount of change in condition "A" (low-uncertainty) on a scale from -100 to +100
+- all those variables exist also prefixed with "B" for condition "B" (high-uncertainty)
+
 
 ### Subjectively reported arousal
 
