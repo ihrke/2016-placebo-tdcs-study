@@ -70,7 +70,10 @@ Raw data is located in `data/raw` and is provided in `.csv` format.
 The `.R` scripts located in `data` load the raw files into `R`
 workspace under the name of the `R`-file (without the `.R` extension).
 
-The data is structured as follows (refer to [the paper]() for
+*NOTE*: there are also pre-processed exports of all the variables discussed next; those are located under [data/export](data/export).
+
+
+The data is structured as follows (refer to [the paper](http://www.nature.com/articles/srep41028) for
 details).
 
 ### Subjectively reportex anticipation/expectations
@@ -130,6 +133,8 @@ data from the three different sessions are stored in three variables
 - `learn.A` - low-uncertainty condition 
 - `learn.B` - high-uncertainty condition
 
+and there is also a single data.frame `learn` combining the three where the factor `condition` specifies the condition
+
 ~~~
 > summary(learn.N)
   Participant        pair   condition      ACC                RT
@@ -165,6 +170,8 @@ data from the three different sessions are stored in three variables
 - `transfer.N` - baseline
 - `transfer.A` - low uncertainty condition
 - `transfer.B` - high uncertainty condition
+
+and there is also a single data.frame `transfer` combining the three where the factor `condition` specifies the condition
 
 ~~~
 > summary(transfer.N)
