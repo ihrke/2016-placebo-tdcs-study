@@ -127,8 +127,8 @@ Max.   :10.000   Max.   :9.000
 data from the three different sessions are stored in three variables
 
 - `learn.N` - baseline
-- `learn.A` -
-- `learn.B` -
+- `learn.A` - low-uncertainty condition 
+- `learn.B` - high-uncertainty condition
 
 ~~~
 > summary(learn.N)
@@ -163,8 +163,8 @@ Variables are coded as follows:
 data from the three different sessions are stored in three variables
 
 - `transfer.N` - baseline
-- `transfer.A`
-- `transfer.B`
+- `transfer.A` - low uncertainty condition
+- `transfer.B` - high uncertainty condition
 
 ~~~
 > summary(transfer.N)
