@@ -70,7 +70,7 @@ Raw data is located in `data/raw` and is provided in `.csv` format.
 The `.R` scripts located in `data` load the raw files into `R`
 workspace under the name of the `R`-file (without the `.R` extension).
 
-*NOTE*: there are also pre-processed exports of all the variables discussed next; those are located under [data/export](data/export).
+**NOTE**: there are also pre-processed exports of all the variables discussed next; those are located under [data/export](data/export). These files have been created by the script [src/export_data.R](src/export_data.R).
 
 
 The data is structured as follows (refer to [the paper](http://www.nature.com/articles/srep41028) for
