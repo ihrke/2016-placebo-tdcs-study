@@ -141,6 +141,17 @@ Max.   :10.000   Max.   :9.000
                 NA's   :1
 ~~~
 
+Variables are coded as follows (all arousal ratings on a scale from 1-10):
+
+- `Participant` - number of the participant 
+- `BL_before` - arousal rating in the baseline session ("N") before the experiment
+- `BL_after` - arousal rating in the baseline session ("N") after the experiment
+- `A_before` - arousal rating in the low-uncertainty session ("A") before the experiment
+- `A_after` - arousal rating in the low-uncertainty session ("A") after the experiment
+- `B_before` - arousal rating in the high-uncertainty session ("B") before the experiment
+- `B_after` - arousal rating in the high-uncertainty session ("B") after the experiment
+
+
 ### Data from Reinforcement learning task (learning phase)
 
 data from the three different sessions are stored in three variables
